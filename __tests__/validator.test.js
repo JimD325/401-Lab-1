@@ -7,7 +7,7 @@ describe('validator', ()=> {
     const next = jest.fn();
     const req = {
       url: '/person/', 
-      params :{name: 'Jim Doyle'}}
+      params :{name: 'Jim'}}
       validator(req,res,next);
       expect(next).toHaveBeenCalled();
   })
