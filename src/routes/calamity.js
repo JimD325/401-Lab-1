@@ -2,9 +2,9 @@ const { Calamity } = require('../db');
 
 const createCalamity = async (req, res) => {
 
-  const { type, intensity, location, abilities, } = req.body;
+  const { type, intensity, location, } = req.body;
 
-  const calamity = Calamity.build({ type, intensity, location, abilities, });
+  const calamity = Calamity.build({ type, intensity, location, });
 
   await calamity.save();
 
@@ -41,7 +41,9 @@ const updateCalamity = async (req, res) => {
 
 
 const listCalamities = async (req, res) => {
+  console.log("console log here:", Calamity);
   const calamities = await Calamity.findAll();
+  
   res.status(200).send(calamities);
 };
 

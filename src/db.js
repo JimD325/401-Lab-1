@@ -1,34 +1,42 @@
-const { Sequelize, DataTypes } = require('sequelize');
+require ('dotenv').config();
+const { Sequelize, DataTypes } = require("sequelize");
+const { survivor } = require("./models/survivor");
+const  Calamity  = require("./models/calamity");
 
-// Get the database connection, below is called the connection string.
-// let connection_string;
-// let memory = 'sqlite: ../db.sqlite'; // in memory only
-// let memory = 'sqlite::memory:'; // local persistent file
-// let prod = 'postgres://username:password@postgresdb.server:5432/dbname'; // production postgres with username/password. 
-// How to choose which one to use? NODE_ENV in express. NODE_ENV= production, staging(some env where we dont have production data), dev(local) 
+// Get the database connection
+// const db = new Sequelize("sqlite::memory:");
+let connection_string ='sqlite::memory:';
+// let connection_string = process.env.NODE_ENV === 'dev' ? 'sqlite:memory:' : process.env.DATABASE_URL
+// switch (process.env.NODE_ENV) {
+//   case "production":
+//     connection_string = process.env.DATABASE_URL;
+//     break;
+//   case "dev":
+//     connection_string = "sqlite::memory:";
+//     break;
+//   case "staging":
+//   default:
+//     connection_string = `sqlite:${process.env.SQLITE_FILE ?? "../db"}`;
+//     break;
+// }
+let options = process.env.NODE_ENV === 'production' ? {
+  // For postgres only
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  } 
+} : {};
 
-
-const db = new Sequelize('sqlite::memory:');
-
-// Define our models
-const Survivor = db.define('Survivor', {
-  username: DataTypes.STRING,
-  strengths: DataTypes.STRING,
-  weaknesses: DataTypes.STRING,
-  abilities: DataTypes.STRING, 
-  powerLevel: DataTypes.INTEGER,
-});
-
-const Calamity = db.define('Calamity', {
-  type: DataTypes.STRING,
-  intensity: DataTypes.INTEGER,
-  location: DataTypes.STRING,
-})
+let db = new Sequelize(connection_string, options);
+let calamityTable = Calamity(db, DataTypes);
+let survivorTable = survivor(db, DataTypes);
 // IN DEVELOPMENT ONLY!
 db.sync();
 
 module.exports = {
   db,
-  Survivor,
-  Calamity,
+  Survivor: survivorTable,
+  Calamity: calamityTable,
 };

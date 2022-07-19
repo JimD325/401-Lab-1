@@ -6,3 +6,10 @@ This purpose of the work done today was to implement automated testing and ensur
 
 [Deploy-prod](https://hard-times-server-deploy-prod.herokuapp.com/)<br>
 [Deploy-dev](https://hard-times-server-deploy-dev.herokuapp.com/)<br>
+
+
+# 401-Lab-2
+
+The purpose of this lab was to add some automated testing with error handlers which we created. There were some struggles getting the proper tests to work, but I did eventually get them able to work after some help from Luis Sandoval and Derek Douglas. 
+
+# 401-Lab-3
