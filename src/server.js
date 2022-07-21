@@ -6,9 +6,9 @@ const {validator} = require('./middleware/validator');
 
 const {db} =require('./db');
 
-// const hello = (req, res) => {
-//     res.status(200).send("Hello, World");
-// };
+const hello = (req, res) => {
+    res.status(200).send("Hello, World");
+};
 // const notFound = (req,res) => {
 //     res.status(404).send('Not-Found')
 // }
@@ -39,7 +39,7 @@ app.use(express.json());
 
 
 
-// app.get("/", hello);
+app.get("/", hello);
 app.get("/data", data);
 app.get('/person/:name', validator, person);
 // app.get('*', notFound);

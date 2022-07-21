@@ -13,3 +13,7 @@ This purpose of the work done today was to implement automated testing and ensur
 The purpose of this lab was to add some automated testing with error handlers which we created. There were some struggles getting the proper tests to work, but I did eventually get them able to work after some help from Luis Sandoval and Derek Douglas. 
 
 # 401-Lab-3
+
+For this lab, the goal were two-fold. The first was to properly implement CRUD fuctionality. This got done relatively quickly. The automatic testing for the CRUD functionality was a little more difficult. However, I was able to get it implement. 
+
+For this assignment, I collaborated with Luis Sandoval, Zayah Lang, Hugo Thompson, and Danny Castro. 
