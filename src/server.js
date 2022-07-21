@@ -4,14 +4,14 @@ const express = require("express");
 const {logger} = require('./middleware/logger');
 const {validator} = require('./middleware/validator');
 
-require('./db');
+const {db} =require('./db');
 
 const hello = (req, res) => {
     res.status(200).send("Hello, World");
 };
-const notFound = (req,res) => {
-    res.status(404).send('Not-Found')
-}
+// const notFound = (req,res) => {
+//     res.status(404).send('Not-Found')
+// }
 const serverError = (req,res)=>{
     res.status(500).send('Server Error');
 }
@@ -27,8 +27,8 @@ const person = (req,res)=>{
     res.status(200).send({name:req.params.name});
 }
 
-const { createSurvivor, listSurvivors, getSurvivor, deleteSurvivor, updateSurvivor } = require('./handlers/survivor');
-const { createCalamity, listCalamities, getCalamity, deleteCalamity, updateCalamity } = require('./handlers/calamity');
+const { createSurvivor, listSurvivors, getSurvivor, deleteSurvivor, updateSurvivor } = require('./routes/survivor');
+const { createCalamity, listCalamities, getCalamity, deleteCalamity, updateCalamity } = require('./routes/calamity');
 
 // initialization
 const app = express();
