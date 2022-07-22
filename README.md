@@ -22,7 +22,9 @@ For this assignment, I collaborated with Luis Sandoval, Zayah Lang, Hugo Thompso
 
 The primary goal for this lab was to create a class constructor for any models that might be used, so that code will not need to be repeated as new models are added. 
 
-Lab 4 Pull Request
+### [Lab 4 Pull Request](https://github.com/JimD325/401-Lab-1/pull/7)
+### [Actions as of 7/22/2022](https://github.com/JimD325/401-Lab-1/actions)
+### [Heroku](https://dashboard.heroku.com/apps/hard-times-server-deploy-prod)
 ### Models
   - Survivor: /survivor
   - Survivor Params: ```{"username": "string", "strengths": "string", "weaknesses": "string", "abilities": "string", "powerLevel": "integer"}```
