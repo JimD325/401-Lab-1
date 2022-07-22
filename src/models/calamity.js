@@ -9,13 +9,5 @@ const Calamity = (sequelize, DataTypes) => sequelize.define('Calamity', {
   location: DataTypes.STRING,
 })
 
-// function calamity(db) {
-//   return db.define('Calamity',
-//     {
-//       type: DataTypes.STRING,
-//       intensity: DataTypes.INTEGER,
-//       location: DataTypes.STRING,
-//     },
-//   );
-// };
+
 module.exports =  Calamity;
