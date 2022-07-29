@@ -1,7 +1,8 @@
 require ('dotenv').config();
 const { Sequelize, DataTypes } = require("sequelize");
 const { survivor } = require("./models/survivor");
-const  Calamity  = require("./models/calamity");
+const  calamity  = require("./models/calamity");
+const user = require('./models/user');
 
 // Get the database connection
 // const db = new Sequelize("sqlite::memory:");
@@ -30,8 +31,9 @@ let options = process.env.NODE_ENV === 'production' ? {
 } : {};
 
 let db = new Sequelize(connection_string, options);
-let calamityTable = Calamity(db, DataTypes);
+let calamityTable = calamity(db, DataTypes);
 let survivorTable = survivor(db, DataTypes);
+let userTable = user(db,DataTypes);
 // IN DEVELOPMENT ONLY!
 db.sync();
 
@@ -39,4 +41,5 @@ module.exports = {
   db,
   Survivor: survivorTable,
   Calamity: calamityTable,
+  User: userTable,
 };
